@@ -13,6 +13,24 @@ import svg from '../images/*.svg'
 import images from '../images/*.png'
 import webp from '../images/*.webp'
 
+for (var key in svg) {
+    if (svg.hasOwnProperty(key)) {
+        svg[key] = "/images/" + key + ".svg";
+    }
+}
+
+for (var key in images) {
+    if (images.hasOwnProperty(key)) {
+        images[key] = "/images/" + key + ".png";
+    }
+}
+
+for (var key in webp) {
+    if (webp.hasOwnProperty(key)) {
+        webp[key] = "/images/" + key + ".webp";
+    }
+}
+
 const CAN_ARCHIVE = (process.env.STORAGE === 'dat')
 
 const FormFreeze = (e) => {
