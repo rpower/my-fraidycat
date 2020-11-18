@@ -88,11 +88,13 @@ module.exports = {
         pollDate = now
 
         try {
-          let soc = await this.fetch("https://fraidyc.at/defs/social_NOTFOUND.json")
+          let soc = await this.fetch("https://fraidyc.at/defs/social.json")
           mod = soc.headers.get('last-modified')
           if (pollMod !== mod) {
             let txt = await soc.text()
             defs = JSON.parse(txt)
+			defs['domains']['api.twitch.tv']['headers:Client-Id'] = 'ji0039j519p850jz86u92nr6un6grq'
+			defs['domains']['api.twitch.tv']['headers:Authorization'] = 'Bearer 9a91d78oqpp2q2jr5gk4y5g0jx90jn'
           }
         } catch {
           if (!this.scraper) {
