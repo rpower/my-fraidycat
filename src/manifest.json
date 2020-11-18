@@ -1,8 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "Fraidycat",
-  "short_name": "Fraidycat",
-  "key": "hecfkgekabkkhiidlinmifelhdooeool",
+  "name": "My Fraidycat",
+  "short_name": "My Fraidycat",
   "version": "1.1.7",
   "description": "Follow from afar.",
   "homepage_url": "https://fraidyc.at/",
@@ -53,13 +52,5 @@
     "unlimitedStorage",
     "webRequest",
     "webRequestBlocking"
-  ],
-
-
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "{94060031-effe-4b93-89b4-9cd570217a8d}",
-      "strict_min_version": "57.0"
-    }
-  }
+  ]
 }
