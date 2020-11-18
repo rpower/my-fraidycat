@@ -530,9 +530,6 @@ export default (state, actions) => {
   let settings = window.location.pathname === "/settings.html"
   if (!state.follows.started)
     return <div id="scanner">
-      <div id="logo">
-        <img src={state.follows.baseHref + images['fc']} />
-      </div>
       <div id="loading">
         <img src={state.follows.baseHref + webp['catspace']} alt="..." />
         <p>LOADING</p>
@@ -572,7 +569,6 @@ export default (state, actions) => {
             <li><Link to="/settings" title="Settings"><img src={state.follows.baseHref + svg['gear']} width="16" /></Link></li>
           </ul>}
         </div>
-        <h1><Link to="/"><img src={state.follows.baseHref + images['fc']} alt="Fraidycat" title="Fraidycat" /></Link></h1>
       </header>
       <section>
         <Switch>
