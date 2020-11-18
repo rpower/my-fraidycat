@@ -424,10 +424,6 @@ const ListFollow = ({ location, match }) => ({follows}, actions) => {
                     {st[sortPosts] && <span class="ago">{timeAgo(st[sortPosts], now)}</span>}</div>
                 </a>)}
               {ago && <span class="latest">{ago}</span>}
-              <a><svg class="sparkline"
-                width="120" height="20" stroke-width="2"
-                oncreate={el => sparkpoints(el, follow.activity)}
-                onupdate={el => sparkpoints(el, follow.activity)}></svg></a>
               <Link to={`/edit/${follow.id}`} class="edit" title="edit"><img src={follows.baseHref + images['270f']} /></Link>
             </h3>
             <div class={`extra ${follows.settings['mode-expand'] || "trunc"}`}>
