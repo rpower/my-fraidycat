@@ -502,9 +502,13 @@ div.intro {
 
   .status {
     position: relative;
-    display: none;
+    display: inline;
     padding: 0 3px;
     text-decoration: none;
+  }
+  
+  .status-pinned {
+    display: none;
   }
 
   @include themed() {

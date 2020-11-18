@@ -412,19 +412,18 @@ const ListFollow = ({ location, match }) => ({follows}, actions) => {
           return <li key={id} class={dk || 'age-X'}>
             <a name={id}></a>
             <h3>
-              <Link to={linkUrl}>
+              <Link to={`/edit/${follow.id}`}>
                 <img class="favicon" src={Favicon(follows.baseHref, follow)}
                   onerror={e => e.target.src=follows.baseHref + svg['globe']} width="20" height="20" />
               </Link>
               <Link class="url" to={linkUrl}>{followTitle(follow)}</Link>
               {follow.status instanceof Array && follow.status.map(st =>
                 <a class={`status status-${st.type}`} oncreate={ToggleHover} href={st.url || follow.url}
-                  >{st.type === 'live' ? <span><img src={follows.baseHref + svg['rec']} width="12" /> LIVE</span> : <span><img src={follows.baseHref + svg['notepad']} width="16" /></span>}
+                  >{st.type === 'live' ? <span><img src={follows.baseHref + svg['rec']} width="12" /> LIVE</span> : ''}
                   <div>{st.title || st.text || html2text(st.html)}
                     {st[sortPosts] && <span class="ago">{timeAgo(st[sortPosts], now)}</span>}</div>
                 </a>)}
               {ago && <span class="latest">{ago}</span>}
-              <Link to={`/edit/${follow.id}`} class="edit" title="edit"><img src={follows.baseHref + images['270f']} /></Link>
             </h3>
             <div class={`extra ${follows.settings['mode-expand'] || "trunc"}`}>
               {follow.posts instanceof Array && follow.posts.length > 0 &&
