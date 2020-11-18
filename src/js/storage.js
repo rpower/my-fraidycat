@@ -88,7 +88,7 @@ module.exports = {
         pollDate = now
 
         try {
-          let soc = await this.fetch("https://fraidyc.at/defs/social.json")
+          let soc = await this.fetch("https://fraidyc.at/defs/social_NOTFOUND.json")
           mod = soc.headers.get('last-modified')
           if (pollMod !== mod) {
             let txt = await soc.text()
@@ -97,7 +97,7 @@ module.exports = {
         } catch {
           if (!this.scraper) {
             let obj
-            try { obj = await this.readFile('/social.json') } catch {}
+            try { obj = await this.readFile('../../defs/social.json') } catch {}
             if (obj && obj.mod && obj.defs) {
               mod = obj.mod
               defs = obj.defs
@@ -112,7 +112,7 @@ module.exports = {
           if (pollMod !== mod) {
             this.scraper = new fraidyscrape(defs, this.dom, this.xpath)
             pollMod = mod
-            this.writeFile('/social.json', {defs, mod})
+            this.writeFile('../../defs/social.json', {defs, mod})
           }
         }
       }
